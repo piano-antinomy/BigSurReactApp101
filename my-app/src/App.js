@@ -1,7 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
 
+
+
+// notes for 01/04
+// () for html while {} for javascript reference
+
 function App() {
+  const comments_orginal = ["Yes", "Correct", 1];
+  const comments_in_html = 
+      [(<li> Thank you from html </li>),
+       (<li> Thank you from html again </li>)];
+  
+  const comments_html_mapped = comments_orginal.map(c => {
+          return (<li> {c} </li>)
+      } );
+      
   return (
     <div className="App">
       <header className="App-header">
@@ -18,8 +32,17 @@ function App() {
           Learn React from James
         </a>
         <p> my journey has started </p>
+        
+        <ul className="myComment">
+          <li> Thank you - 0 </li>
+          <li> Yes - 0</li>
+          {comments_in_html}
+          {comments_html_mapped}
+        </ul>
       </header>
+        
     </div>
+
   );
 }
 

@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.myComment {
+    padding: 20px; 
+    color: #2923ea;
+    font-size: 30px;
+}
+
