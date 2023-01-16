@@ -6,6 +6,8 @@ import Recommendations from './recommendations/Recommendations.js'
 import Search from './search/Search'
 import Notification from './notification/Notification';
 import Popup from './popup/Popup';
+import LikeButton from './like/LikeButton';
+import SuperLikeButton from './like/SuperLikeButton';
 
 function gotoNextPage() {
   window.location.href = 'https://reactjs.org';
@@ -27,19 +29,18 @@ function App() {
             <div className='secondary'>
                 <Recommendations/>
             </div>
-        </div>    
-
-        <div>
-              <Notification title="Notice" message = "This is general" severity="general" />
-              <Notification title="Notice" message = "This is important" severity="important" />
-              <Notification title="Notice" message = "This is urgent" severity="urgent" />
-        </div> 
+        </div>
 
         <Popup onClose={gotoNextPage} buttonText='WTF'>
           <h2>This message is passed from children</h2>
           <Notification title="Notice" message = "This is general" severity="general" />
           <Notification title="Notice" message = "This is important" severity="important" />
         </Popup>
+
+        <div>
+          <LikeButton />
+          <SuperLikeButton liked = {false}/>
+        </div>
     </div>
   );
 }

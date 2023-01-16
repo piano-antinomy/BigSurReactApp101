@@ -1,0 +1,14 @@
+.myButton {
+    --color: #1E2235;
+    --color-hover: #1E2235;
+    --color-active: #fff;
+    --icon: #BBC1E1;
+    --icon-hover: #8A91B4;
+    --icon-active: #fff;
+    --background: #fff;
+    --background-hover: #fff;
+    --background-active: #362A89;
+    --border: #E1E6F9;
+    --border-active: #362A89;
+    --shadow: #{rgba(#001177, .025)};
+}
