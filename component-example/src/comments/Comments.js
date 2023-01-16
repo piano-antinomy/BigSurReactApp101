@@ -1,3 +1,5 @@
+import Comment from './Comment.js'
+
 function Comments() {
 
     const commentsData = [
@@ -10,15 +12,7 @@ function Comments() {
         <div className='comments'> 
             {commentsData.map( c => {
                 return (
-                    <div class="comment">
-                        <h3 class="comment-header"> {c.creator} </h3>
-                        <p class="comment-body"> {c.comment} </p>
-                        <div class="comment-actions">
-                            <button> Like </button>
-                            <span> { c.likedCount } </span> 
-                        </div>
-                    </div>
-
+                    <Comment comment={c}></Comment>
                 );
             })}
         </div>

@@ -36,12 +36,14 @@
     transform: rotate(360deg);
   }
 }
-
+.top_margin{
+  height: 30px;
+}
 
 .columns {
     display: grid;
     grid-template-areas: "primary secondary";
-    margin: 0 auto;
+    margin-left: 200px;
     width: 1000px;
 }
 
