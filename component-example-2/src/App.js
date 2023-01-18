@@ -10,6 +10,7 @@ import LikeButton from './like/LikeButton';
 import SuperLikeButton from './like/SuperLikeButton';
 import {useState, useEffect} from 'react';
 import Toggle from './effectButton/Toggle';
+import Todos from './todo/Todos';
 
 function gotoNextPage() {
   window.location.href = 'https://reactjs.org';
@@ -21,7 +22,17 @@ function App() {
   const [option, setOption] = useState("react");
   const [issues, setIssues] = useState([]);
   const [showSize, setShowSize] = useState(false);
-  const [todos, setTodos] = useState(["read a book", "reply comments", "Make a video"]);
+  const [todos, setTodos] = useState(
+    [{name: "read a book", done: true}, 
+     {name: "reply comments", done: true}, 
+     {name: "Make a video", done: false}]
+    );
+
+  const [todo_input, setTodoInput] = useState({name: '', done: false});
+  
+  const taskNumber = todos.length;
+  const taskDoneNumber = todos.filter(t => t.done).length;
+
   /**
   * useEffect, the condition is defined by the second argument. 
   * when the second argument is an empty list [], the function will execute once and only once
@@ -47,20 +58,22 @@ function App() {
       console.log("paged loaded")
     }, []
   );
-
-  const [todo_input, setTodoInput] = useState('');
-
+  
   const handleClick = () => {
-    if (!todo_input) {
+    if (!todo_input.name) {
       return;
     }
 
     setTodos(todos.concat([todo_input]));
 
     // to trigger a new render to refresh the input box to empty after click
-    setTodoInput('');
+    setTodoInput({name: '', done: false});
   };
 
+  const toggleDoneClick = (index) => {
+    todos[index].done = !todos[index].done;
+    setTodos(todos.concat([]));
+  }
 
   return (
     <div className="App">
@@ -69,13 +82,15 @@ function App() {
         
         <div>
           <h1> 01/17 to-do App</h1>
+          <h2> Task number: {taskNumber}, Done: {taskDoneNumber} </h2>
           <div>
-            <input type="text" onChange={(v) => {setTodoInput(v.target.value)}} value={todo_input}/>
+            <input type="text" onChange={(v) => {setTodoInput({name: v.target.value, done: false})}} value={todo_input.name}/>
             <button onClick={handleClick}>Add</button>
           </div>
-          <ul>
-            {todos.map(t => (<li> {t} </li>))}
-          </ul>
+          
+          <Todos todos={todos} onClick = {toggleDoneClick}></Todos>
+          
+          
         </div>
 
         <div>
