@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import VideoPlayer from './VideoPlayer.js';
+import APICallExample from './APICallExample.js';
 import Comments from './comments/Comments.js';
 import Recommendations from './recommendations/Recommendations.js'
 import Search from './search/Search'
@@ -15,7 +15,7 @@ function App() {
         <div className='columns'>
             <div className='primary'>
                 
-                <VideoPlayer />
+                <APICallExample />
                 <Comments />
             </div>
             <div className='secondary'>

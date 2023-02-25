@@ -1,7 +1,7 @@
-import './VideoPlayer.css'
+import './APICallExample.css'
 import React, { useState, useEffect } from "react";
 
-function VideoPlayer() {
+function APICallExample() {
     
     const [studies, setStudies] = useState([]);
 
@@ -12,7 +12,7 @@ function VideoPlayer() {
             .catch(error => console.error(error));
         }, []);
 
-    //console.log(studies);
+    console.log(studies);
     return ( 
         <div>
             <div className="videoPlayer"> VideoPlayer - haha </div>
@@ -29,4 +29,4 @@ function VideoPlayer() {
     );
 }
 
-export default VideoPlayer;
+export default APICallExample;
